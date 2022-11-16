@@ -226,8 +226,7 @@ const cleanOrderColumns = async ({ id, attribute, db, inverseRelIds, transaction
   // https://github.com/knex/knex/issues/2504
   switch (strapi.db.dialect.client) {
     case 'mysql':
-      await db
-        .getConnection()
+      await db.connection
         .raw(
           `UPDATE
             ?? as a,
